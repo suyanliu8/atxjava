@@ -1,11 +1,10 @@
 package atx.client.model;
 
-import atx.client.enums.Const;
-import net.sf.json.JSONObject;
-import org.apache.commons.collections.CollectionUtils;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import atx.client.enums.Const;
+import net.sf.json.JSONObject;
 
 /**
  * Created by 飞狐 on 2018/4/22.
@@ -65,7 +64,8 @@ public class AtxDriver {
     }
 
     public void setCoordinateInfo(List<Float> coordinateInfo) {
-        if(CollectionUtils.isEmpty(coordinateInfo)) {
+        //if(CollectionUtils.isEmpty(coordinateInfo)) {
+    	if (coordinateInfo == null || coordinateInfo.size() <= 0) {
             List<Float> result = new ArrayList<Float>();
             if (this.objInfo != null) {
                 JSONObject bounds = this.objInfo.getJSONObject("result").getJSONObject("bounds");

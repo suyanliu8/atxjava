@@ -161,6 +161,13 @@ public class AtxClient {
         return isExist ? element : null;
     }
 
+    public static boolean isEmpty(String str) {
+        return str == null || str.length() == 0;
+    }
+
+    public static boolean isNotEmpty(String str) {
+        return !isEmpty(str);
+    }
 
     /**
      * 根据resourceId查找
@@ -208,27 +215,27 @@ public class AtxClient {
 
         Map<String,Object> searchObjs = new HashMap<String,Object>();
 
-        if(StringUtils.isNotEmpty(node.attribute(Attribute.INDEX.getName()).getValue())) {
+        if(isNotEmpty(node.attribute(Attribute.INDEX.getName()).getValue())) {
             searchObjs.put(AttributeMask.INDEX.getDes(), node.attribute(Attribute.INDEX.getName()).getValue());
         }
 
-        if(StringUtils.isNotEmpty(node.attribute(Attribute.PACKAGE.getName()).getValue())) {
+        if(isNotEmpty(node.attribute(Attribute.PACKAGE.getName()).getValue())) {
             searchObjs.put(AttributeMask.PACKAGE_NAME.getDes(), node.attribute(Attribute.PACKAGE.getName()).getValue());
         }
 
-        if(StringUtils.isNotEmpty(node.attribute(Attribute.CLASS.getName()).getValue())) {
+        if(isNotEmpty(node.attribute(Attribute.CLASS.getName()).getValue())) {
             searchObjs.put(AttributeMask.CLASS_NAME.getDes(), node.attribute(Attribute.CLASS.getName()).getValue());
         }
 
-        if(StringUtils.isNotEmpty(node.attribute(Attribute.TEXT.getName()).getValue())) {
+        if(isNotEmpty(node.attribute(Attribute.TEXT.getName()).getValue())) {
             searchObjs.put(AttributeMask.TEXT.getDes(), node.attribute(Attribute.TEXT.getName()).getValue());
         }
 
-        if(StringUtils.isNotEmpty(node.attribute(Attribute.CONTENT_DESC.getName()).getValue())) {
+        if(isNotEmpty(node.attribute(Attribute.CONTENT_DESC.getName()).getValue())) {
             searchObjs.put(AttributeMask.DESCRIPTION.getDes(), node.attribute(Attribute.CONTENT_DESC.getName()).getValue());
         }
 
-        if(StringUtils.isNotEmpty(node.attribute(Attribute.RESOURCE_ID.getName()).getValue())){
+        if(isNotEmpty(node.attribute(Attribute.RESOURCE_ID.getName()).getValue())){
             searchObjs.put(AttributeMask.RESOURCEID.getDes(),node.attribute(Attribute.RESOURCE_ID.getName()).getValue());
         }
 
